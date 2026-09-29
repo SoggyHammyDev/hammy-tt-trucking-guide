@@ -18,57 +18,26 @@ async function loadGuide(){
   renderStatic();
 }
 
-function serverCandidates(payload){
-  const out=[],seen=new Set();
-
-  function expandTemplate(value,env){
-    return String(value).replace(/\\$\\{([^}]+)\\}|\\$([A-Za-z_][A-Za-z0-9_]*)/g,(match,a,b)=>{
-      const key=a||b;
-      return env[key]!==undefined?String(env[key]):match;
-    });
-  }
-
-  function walk(o,label,parentEnv={}){
-    if(Array.isArray(o)){o.forEach((v,i)=>walk(v,label+" "+(i+1),parentEnv));return;}
-    if(!o||typeof o!=="object")return;
-
-    const env={...parentEnv};
-    for(const [k,v] of Object.entries(o)){
-      if(["string","number","boolean"].includes(typeof v))env[k]=v;
-    }
-
-    const name=o.name||o.server_name||o.label||o.title||label||"TT Server";
-
-    for(const [k,v] of Object.entries(o)){
-      if(typeof v==="string"&&/^https?:\\/\\//i.test(v)&&/api|status|url|template|endpoint/i.test(k)){
-        const expanded=expandTemplate(v,env);
-        if(/\\$\\{|\\$[A-Za-z_]/.test(expanded))continue;
-        const u=base(expanded);
-        if(!seen.has(u)){seen.add(u);out.push({name:String(name),url:u});}
-      }else if(v&&typeof v==="object"){
-        walk(v,String(name||k),env);
-      }
-    }
-  }
-
-  walk(payload,"TT Server");
-  return out;
-}
-
 async function loadServers(){
-  let list=[];
-  try{
-    const r=await fetch("https://cdn.tycoon.community/servers.json",{cache:"no-store"});
-    if(r.ok)list=serverCandidates(await r.json());
-  }catch(_){}
-  if(!list.length)list=[
-    {name:"Server 1 (documented fallback)",url:"https://tycoon-2epova.users.cfx.re/status"},
-    {name:"Server 2 / Beta (documented fallback)",url:"https://tycoon-njyvop.users.cfx.re/status"}
-  ];
   const sel=$("serverSelect");
   sel.innerHTML='<option value="">Choose server…</option>';
-  list.forEach(x=>{const o=document.createElement("option");o.value=x.url;o.textContent=x.name;sel.appendChild(o);});
-  const custom=document.createElement("option");custom.value="__custom";custom.textContent="Custom API base URL…";sel.appendChild(custom);
+
+  const servers=[
+    {name:"Main",url:"https://api.tycoon.community"},
+    {name:"Beta",url:"https://apibeta.tycoon.community"}
+  ];
+
+  servers.forEach(s=>{
+    const o=document.createElement("option");
+    o.value=s.url;
+    o.textContent=s.name;
+    sel.appendChild(o);
+  });
+
+  const custom=document.createElement("option");
+  custom.value="__custom";
+  custom.textContent="Custom API base URL…";
+  sel.appendChild(custom);
 }
 
 function apiUrl(server,vrp){
