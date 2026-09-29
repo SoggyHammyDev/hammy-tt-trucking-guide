@@ -20,16 +20,37 @@ async function loadGuide(){
 
 function serverCandidates(payload){
   const out=[],seen=new Set();
-  function walk(o,label){
-    if(Array.isArray(o)){o.forEach((v,i)=>walk(v,label+" "+(i+1)));return;}
+
+  function expandTemplate(value,env){
+    return String(value).replace(/\\$\\{([^}]+)\\}|\\$([A-Za-z_][A-Za-z0-9_]*)/g,(match,a,b)=>{
+      const key=a||b;
+      return env[key]!==undefined?String(env[key]):match;
+    });
+  }
+
+  function walk(o,label,parentEnv={}){
+    if(Array.isArray(o)){o.forEach((v,i)=>walk(v,label+" "+(i+1),parentEnv));return;}
     if(!o||typeof o!=="object")return;
-    const name=o.name||o.server_name||o.label||o.title||label||"TT Server";
+
+    const env={...parentEnv};
     for(const [k,v] of Object.entries(o)){
-      if(typeof v==="string"&&/^https?:\/\//i.test(v)&&/api|status|url|template|endpoint/i.test(k)){
-        const u=base(v);if(!seen.has(u)){seen.add(u);out.push({name:String(name),url:u});}
-      }else if(v&&typeof v==="object")walk(v,String(name||k));
+      if(["string","number","boolean"].includes(typeof v))env[k]=v;
+    }
+
+    const name=o.name||o.server_name||o.label||o.title||label||"TT Server";
+
+    for(const [k,v] of Object.entries(o)){
+      if(typeof v==="string"&&/^https?:\\/\\//i.test(v)&&/api|status|url|template|endpoint/i.test(k)){
+        const expanded=expandTemplate(v,env);
+        if(/\\$\\{|\\$[A-Za-z_]/.test(expanded))continue;
+        const u=base(expanded);
+        if(!seen.has(u)){seen.add(u);out.push({name:String(name),url:u});}
+      }else if(v&&typeof v==="object"){
+        walk(v,String(name||k),env);
+      }
     }
   }
+
   walk(payload,"TT Server");
   return out;
 }
