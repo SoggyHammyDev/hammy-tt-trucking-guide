@@ -65,9 +65,9 @@
         <small id="subjobName">—</small>
       </article>
       <article class="stat">
-        <span>Trucking EXP tokens</span>
+        <span>Bonus Trucking EXP</span>
         <strong id="truckTokens">—</strong>
-        <small>From player inventory</small>
+        <small id="truckTokenDetail">Converted Bonus EXP in inventory</small>
       </article>
       <article class="stat">
         <span>API charges</span>
@@ -77,13 +77,72 @@
     </section>
 
     <nav class="tabs" aria-label="Guide sections">
-      <button class="tab active" data-tab="progression" type="button">Progression</button>
+      <button class="tab active" data-tab="foryou" type="button">For You</button>
+      <button class="tab" data-tab="progression" type="button">Progression</button>
       <button class="tab" data-tab="calculator" type="button">Capacity</button>
       <button class="tab" data-tab="routes" type="button">Routes</button>
       <button class="tab" data-tab="vehicles" type="button">Trailers</button>
     </nav>
 
-    <section id="progression" class="tabpage active">
+    <section id="foryou" class="tabpage active">
+      <div class="recommend-grid">
+        <article class="panel recommendation-hero">
+          <p class="eyebrow">Personal recommendation</p>
+          <h2 id="recommendTitle">Connect to get your recommendation</h2>
+          <div id="recommendMeta" class="recommend-meta"></div>
+          <p id="recommendWhy" class="recommend-why">Once connected, this uses your trucking XP, Master/Premium access, current rig, and your own measured XP/hr results.</p>
+          <div id="recommendSteps" class="steps"></div>
+        </article>
+
+        <article class="panel">
+          <p class="eyebrow">Your setup</p>
+          <h2>What the guide sees</h2>
+          <div id="setupFacts" class="facts"></div>
+        </article>
+      </div>
+
+      <div class="two-col dashboard-row">
+        <article class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Real XP/hr</p>
+              <h2>Benchmark an activity</h2>
+            </div>
+            <span id="benchmarkState" class="badge muted">Not running</span>
+          </div>
+          <p class="fineprint benchmark-note">Start right before you begin an activity. Stop when you finish. Start uses your currently loaded XP; Stop makes one fresh TT API call and calculates your real XP/hour.</p>
+          <div class="benchmark-controls">
+            <label>
+              <span>Activity</span>
+              <select id="benchmarkActivity"></select>
+            </label>
+            <button id="benchmarkStart" class="primary" type="button">Start benchmark</button>
+            <button id="benchmarkStop" class="ghost" type="button" disabled>Stop & calculate</button>
+          </div>
+          <div id="benchmarkLive" class="big-result benchmark-live">No benchmark running.</div>
+        </article>
+
+        <article class="panel">
+          <p class="eyebrow">Measured on this device</p>
+          <h2>Your XP/hr leaderboard</h2>
+          <div id="benchmarkLeaderboard" class="leaderboard"></div>
+          <button id="clearBenchmarks" class="ghost small-btn" type="button">Clear benchmarks</button>
+        </article>
+      </div>
+
+      <article class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Eligible activities</p>
+            <h2>What you can do now</h2>
+          </div>
+          <span class="fineprint">Measured XP/hr beats guesses. Unmeasured activities are marked as candidates.</span>
+        </div>
+        <div id="personalActivityCards" class="cards"></div>
+      </article>
+    </section>
+
+    <section id="progression" class="tabpage">
       <div class="two-col">
         <article class="panel">
           <div class="section-head">
