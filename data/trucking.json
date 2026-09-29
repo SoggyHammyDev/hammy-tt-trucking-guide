@@ -1,63 +1,502 @@
 {
-  "trailers":[
-    {"name":"MK1 (Pup Trailer)","price":400000,"capacityKg":400,"level":5},
-    {"name":"MK2 (Trailer)","price":600000,"capacityKg":475,"level":10},
-    {"name":"MK3 (Log Trailer)","price":1250000,"capacityKg":600,"level":15},
-    {"name":"MK4 (Bottom Dump Trailer)","price":5000000,"capacityKg":775,"level":20},
-    {"name":"MK5 (Dry Bulk Trailer)","price":10000000,"capacityKg":1000,"level":25},
-    {"name":"MK6 (Dump Trailer)","price":18000000,"capacityKg":1500,"level":30},
-    {"name":"MK7 (Container Trailer Small)","price":30000000,"capacityKg":2200,"level":35},
-    {"name":"MK8 (Container Trailer)","price":45000000,"capacityKg":2500,"level":40},
-    {"name":"MK9 (Refrigerated Trailer)","price":75000000,"capacityKg":2750,"level":45},
-    {"name":"MK10 (Refrigerated Trailer)","price":100000000,"capacityKg":3000,"level":50},
-    {"name":"MK11 (TV Trailer)","price":160000000,"capacityKg":3500,"level":55},
-    {"name":"MK12 (TV Trailer 2)","price":250000000,"capacityKg":5000,"level":65},
-    {"name":"MK13 (Box Trailer)","price":450000000,"capacityKg":8500,"level":80},
-    {"name":"MK14 (MOC)","price":500000000,"capacityKg":9000,"level":100}
+  "trailers": [
+    {
+      "name": "MK1 (Pup Trailer)",
+      "price": 400000,
+      "capacityKg": 400,
+      "level": 5
+    },
+    {
+      "name": "MK2 (Trailer)",
+      "price": 600000,
+      "capacityKg": 475,
+      "level": 10
+    },
+    {
+      "name": "MK3 (Log Trailer)",
+      "price": 1250000,
+      "capacityKg": 600,
+      "level": 15
+    },
+    {
+      "name": "MK4 (Bottom Dump Trailer)",
+      "price": 5000000,
+      "capacityKg": 775,
+      "level": 20
+    },
+    {
+      "name": "MK5 (Dry Bulk Trailer)",
+      "price": 10000000,
+      "capacityKg": 1000,
+      "level": 25
+    },
+    {
+      "name": "MK6 (Dump Trailer)",
+      "price": 18000000,
+      "capacityKg": 1500,
+      "level": 30
+    },
+    {
+      "name": "MK7 (Container Trailer Small)",
+      "price": 30000000,
+      "capacityKg": 2200,
+      "level": 35
+    },
+    {
+      "name": "MK8 (Container Trailer)",
+      "price": 45000000,
+      "capacityKg": 2500,
+      "level": 40
+    },
+    {
+      "name": "MK9 (Refrigerated Trailer)",
+      "price": 75000000,
+      "capacityKg": 2750,
+      "level": 45
+    },
+    {
+      "name": "MK10 (Refrigerated Trailer)",
+      "price": 100000000,
+      "capacityKg": 3000,
+      "level": 50
+    },
+    {
+      "name": "MK11 (TV Trailer)",
+      "price": 160000000,
+      "capacityKg": 3500,
+      "level": 55
+    },
+    {
+      "name": "MK12 (TV Trailer 2)",
+      "price": 250000000,
+      "capacityKg": 5000,
+      "level": 65
+    },
+    {
+      "name": "MK13 (Box Trailer)",
+      "price": 450000000,
+      "capacityKg": 8500,
+      "level": 80
+    },
+    {
+      "name": "MK14 (MOC)",
+      "price": 500000000,
+      "capacityKg": 9000,
+      "level": 100
+    }
   ],
-  "cargo":[
-    {"name":"Tools","weightKg":1,"level":1,"location":"Cargo Buyer: Tools"},
-    {"name":"Erasers","weightKg":3,"level":2,"location":"Cargo Buyer: Erasers"},
-    {"name":"Logs","weightKg":60,"level":6,"location":"Logging Camp"},
-    {"name":"Recycled Trash","weightKg":90,"level":9,"location":"Recycling Center"},
-    {"name":"Toxic Waste","weightKg":110,"level":11,"location":"Elysian Island Waste Deposit"},
-    {"name":"Recycled Electronics","weightKg":130,"level":13,"location":"Electronics Store"},
-    {"name":"Quarry Rubble","weightKg":150,"level":15,"location":"Quarry"},
-    {"name":"Vegetables","weightKg":15,"level":10,"location":"Great Chaparral Farm"},
-    {"name":"Dairy Products","weightKg":15,"level":10,"location":"Grapeseed Farms"},
-    {"name":"Crude Oil","weightKg":150,"level":10,"location":"LS Oil Pumping Station"},
-    {"name":"Raw Gas","weightKg":150,"level":10,"location":"GSD Gas Pumping Station"},
-    {"name":"Methamphetamine","weightKg":10,"level":17,"location":"Liquor Ace","premium":true}
+  "cargo": [
+    {
+      "name": "Tools",
+      "weightKg": 1,
+      "level": 1,
+      "location": "Cargo Buyer: Tools"
+    },
+    {
+      "name": "Erasers",
+      "weightKg": 3,
+      "level": 2,
+      "location": "Cargo Buyer: Erasers"
+    },
+    {
+      "name": "Logs",
+      "weightKg": 60,
+      "level": 6,
+      "location": "Logging Camp"
+    },
+    {
+      "name": "Recycled Trash",
+      "weightKg": 90,
+      "level": 9,
+      "location": "Recycling Center"
+    },
+    {
+      "name": "Toxic Waste",
+      "weightKg": 110,
+      "level": 11,
+      "location": "Elysian Island Waste Deposit"
+    },
+    {
+      "name": "Recycled Electronics",
+      "weightKg": 130,
+      "level": 13,
+      "location": "Electronics Store"
+    },
+    {
+      "name": "Quarry Rubble",
+      "weightKg": 150,
+      "level": 15,
+      "location": "Quarry"
+    },
+    {
+      "name": "Vegetables",
+      "weightKg": 15,
+      "level": 10,
+      "location": "Great Chaparral Farm"
+    },
+    {
+      "name": "Dairy Products",
+      "weightKg": 15,
+      "level": 10,
+      "location": "Grapeseed Farms"
+    },
+    {
+      "name": "Crude Oil",
+      "weightKg": 150,
+      "level": 10,
+      "location": "LS Oil Pumping Station"
+    },
+    {
+      "name": "Raw Gas",
+      "weightKg": 150,
+      "level": 10,
+      "location": "GSD Gas Pumping Station"
+    },
+    {
+      "name": "Methamphetamine",
+      "weightKg": 10,
+      "level": 17,
+      "location": "Liquor Ace",
+      "premium": true
+    }
   ],
-  "milestones":[
-    {"level":1,"text":"Courier side-job"},
-    {"level":2,"text":"Transport Erasers"},
-    {"level":5,"text":"Buy 10 Tools at a time"},
-    {"level":6,"text":"Transport and process Logs"},
-    {"level":9,"text":"Recycled Trash process"},
-    {"level":10,"text":"Military, Refrigerated and Petrochemical sub-jobs"},
-    {"level":11,"text":"Toxic Waste"},
-    {"level":13,"text":"Recycled Electronics"},
-    {"level":15,"text":"Quarry Rubble, Jewelry and Batteries"},
-    {"level":17,"text":"Illegal pill-component production"},
-    {"level":35,"text":"Storage Facilities Courier routes"},
-    {"level":80,"text":"MK13 trailer"},
-    {"level":100,"text":"MK14 trailer, Car Parts and Vehicle Shipments"},
-    {"xp":1000000,"displayLevel":"631.96","text":"Master Trucker + MK15 eligibility"}
+  "milestones": [
+    {
+      "level": 1,
+      "text": "Courier side-job"
+    },
+    {
+      "level": 2,
+      "text": "Transport Erasers"
+    },
+    {
+      "level": 5,
+      "text": "Buy 10 Tools at a time"
+    },
+    {
+      "level": 6,
+      "text": "Transport and process Logs"
+    },
+    {
+      "level": 9,
+      "text": "Recycled Trash process"
+    },
+    {
+      "level": 10,
+      "text": "Military, Refrigerated and Petrochemical sub-jobs"
+    },
+    {
+      "level": 11,
+      "text": "Toxic Waste"
+    },
+    {
+      "level": 13,
+      "text": "Recycled Electronics"
+    },
+    {
+      "level": 15,
+      "text": "Quarry Rubble, Jewelry and Batteries"
+    },
+    {
+      "level": 17,
+      "text": "Illegal pill-component production"
+    },
+    {
+      "level": 35,
+      "text": "Storage Facilities Courier routes"
+    },
+    {
+      "level": 80,
+      "text": "MK13 trailer"
+    },
+    {
+      "level": 100,
+      "text": "MK14 trailer, Car Parts and Vehicle Shipments"
+    },
+    {
+      "xp": 1000000,
+      "displayLevel": "631.96",
+      "text": "Master Trucker + MK15 eligibility"
+    }
   ],
-  "routes":[
-    {"name":"Basic Commercial","level":1,"description":"Pick up cargo from sellers and deliver it to compatible cargo buyers."},
-    {"name":"Logging","level":6,"description":"Logging Camp → Logs → Sawmill → Sawdust or Planks → LS Port Export / storage."},
-    {"name":"Recycled Materials","level":9,"description":"Recycling Center → Recycled Trash → Sorting Facility → plastics / aluminum / tin → exports or foundry."},
-    {"name":"Refrigerated","level":10,"description":"Food routes including vegetables, dairy, meat/fish and airline meal processing.","subjob":"Refrigerated"},
-    {"name":"Petrochemical / Military","level":10,"description":"Crude Oil and Raw Gas feed the petrochemical chain used by military trucking.","subjob":"Petrochemical / Military"},
-    {"name":"Jewelry","level":15,"description":"Quarry Rubble + Recycled Electronics → Jewelry → Jewelry Store."},
-    {"name":"Batteries","level":15,"description":"Quarry Rubble + Recycled Trash + Toxic Waste feed the battery process."},
-    {"name":"Illegal","level":17,"description":"Pill capsules, Defibkit and Pills routes using Methamphetamine.","premium":true,"subjob":"Illegal"},
-    {"name":"Concrete","level":15,"description":"Quarry Rubble + Logs + Unfiltered Water + Toxic Waste → Concrete → Alta Construction Site.","premium":true},
-    {"name":"House","level":100,"description":"Ultimate route combining advanced and premium trucking chains at the House Construction Site.","premium":true},
-    {"name":"Vehicle Shipments","level":100,"description":"Craft vehicle components and complete Vehicle Shipments at the Vehicle Factory.","premium":true}
+  "routes": [
+    {
+      "name": "Basic Commercial",
+      "level": 1,
+      "description": "Pick up cargo from sellers and deliver it to compatible cargo buyers."
+    },
+    {
+      "name": "Logging",
+      "level": 6,
+      "description": "Logging Camp → Logs → Sawmill → Sawdust or Planks → LS Port Export / storage."
+    },
+    {
+      "name": "Recycled Materials",
+      "level": 9,
+      "description": "Recycling Center → Recycled Trash → Sorting Facility → plastics / aluminum / tin → exports or foundry."
+    },
+    {
+      "name": "Refrigerated",
+      "level": 10,
+      "description": "Food routes including vegetables, dairy, meat/fish and airline meal processing.",
+      "subjob": "Refrigerated"
+    },
+    {
+      "name": "Petrochemical / Military",
+      "level": 10,
+      "description": "Crude Oil and Raw Gas feed the petrochemical chain used by military trucking.",
+      "subjob": "Petrochemical / Military"
+    },
+    {
+      "name": "Jewelry",
+      "level": 15,
+      "description": "Quarry Rubble + Recycled Electronics → Jewelry → Jewelry Store."
+    },
+    {
+      "name": "Batteries",
+      "level": 15,
+      "description": "Quarry Rubble + Recycled Trash + Toxic Waste feed the battery process."
+    },
+    {
+      "name": "Illegal",
+      "level": 17,
+      "description": "Pill capsules, Defibkit and Pills routes using Methamphetamine.",
+      "premium": true,
+      "subjob": "Illegal"
+    },
+    {
+      "name": "Concrete",
+      "level": 15,
+      "description": "Quarry Rubble + Logs + Unfiltered Water + Toxic Waste → Concrete → Alta Construction Site.",
+      "premium": true
+    },
+    {
+      "name": "House",
+      "level": 100,
+      "description": "Ultimate route combining advanced and premium trucking chains at the House Construction Site.",
+      "premium": true
+    },
+    {
+      "name": "Vehicle Shipments",
+      "level": 100,
+      "description": "Craft vehicle components and complete Vehicle Shipments at the Vehicle Factory.",
+      "premium": true
+    }
   ],
-  "source":"https://dash.tycoon.community/wiki/index.php/Trucking",
-  "updated":"2026-09-29"
+  "source": "https://dash.tycoon.community/wiki/index.php/Trucking",
+  "updated": "2026-09-29",
+  "activities": [
+    {
+      "id": "feed-hunters",
+      "name": "Feed the Hunters",
+      "level": 10,
+      "premium": false,
+      "masterPreferred": true,
+      "candidatePriority": 100,
+      "category": "Processing / BXP",
+      "description": "A repeatable refrigerated processing loop that awards Trucking XP while converting Food Shipments into Hunting EXP Tokens.",
+      "notes": "Known from live TT testing to award Trucking XP per process. Your actual XP/hr depends heavily on processing speed, travel/restock time, and active EXP bonuses.",
+      "steps": [
+        "Use the Refrigerated or Master trucking sub-job.",
+        "Bring Fridge: Food Shipment to the Feed the Hunters transformer.",
+        "Each process uses 10 Food Shipments.",
+        "Repeat the recipe continuously while timing a benchmark.",
+        "Use the site's Stop & calculate button after a realistic session to record your actual XP/hr."
+      ],
+      "requirements": [
+        "Refrigerated access or Master Trucker",
+        "Fridge: Food Shipment"
+      ]
+    },
+    {
+      "id": "logging",
+      "name": "Logging",
+      "level": 6,
+      "premium": false,
+      "candidatePriority": 40,
+      "category": "Commercial",
+      "description": "Logging Camp → Sawmill → Sawdust/Planks → LS Port Export or storage.",
+      "steps": [
+        "Pick up Logs at a Logging Camp.",
+        "Take Logs to the Sawmill.",
+        "Process into Sawdust or Planks.",
+        "Export at LS Port Export or store for advanced routes."
+      ],
+      "requirements": [
+        "Level 6+"
+      ]
+    },
+    {
+      "id": "recycled-materials",
+      "name": "Recycled Materials",
+      "level": 9,
+      "premium": false,
+      "candidatePriority": 50,
+      "category": "Commercial",
+      "description": "Recycling Center → Sorting Facility → Scrap Plastic / Aluminum / Tin → exports or LS Foundry.",
+      "steps": [
+        "Pick up Recycled Trash at the Recycling Center.",
+        "Process it at the Sorting Facility.",
+        "Export Scrap Plastic at McKenzie Export.",
+        "Refine Aluminum/Tin at LS Foundry, then export refined materials at LS Port Export."
+      ],
+      "requirements": [
+        "Level 9+"
+      ]
+    },
+    {
+      "id": "refrigerated",
+      "name": "Refrigerated Trucking",
+      "level": 10,
+      "premium": false,
+      "candidatePriority": 70,
+      "category": "Sub-job",
+      "description": "Food cargo routes using vegetables, dairy, meat/fish and airline-meal related processing.",
+      "steps": [
+        "Switch to Refrigerated or Master at Trucking HQ/PDA.",
+        "Choose a refrigerated cargo chain.",
+        "Load the highest-capacity rig you can use.",
+        "Run a full pickup → process/delivery loop and benchmark it."
+      ],
+      "requirements": [
+        "Level 10+",
+        "Refrigerated or Master sub-job"
+      ]
+    },
+    {
+      "id": "petro-military",
+      "name": "Petrochemical / Military",
+      "level": 10,
+      "premium": false,
+      "candidatePriority": 65,
+      "category": "Sub-job",
+      "description": "Crude Oil and Raw Gas feed petrochemical production, which is then used by Military trucking.",
+      "steps": [
+        "Switch to Petrochemical or Master.",
+        "Collect Crude Oil / Raw Gas.",
+        "Process petrochemical cargo.",
+        "Switch/use Military steps as required to continue the chain.",
+        "Benchmark a complete repeatable loop, not only one transformer."
+      ],
+      "requirements": [
+        "Level 10+",
+        "Petrochemical/Military access or Master"
+      ]
+    },
+    {
+      "id": "jewelry",
+      "name": "Jewelry",
+      "level": 15,
+      "premium": false,
+      "candidatePriority": 55,
+      "category": "Advanced",
+      "description": "Quarry Rubble + Recycled Electronics → Jewelry → Jewelry Store.",
+      "steps": [
+        "Collect Quarry Rubble.",
+        "Collect Recycled Electronics.",
+        "Process the materials into Jewelry.",
+        "Sell at the Jewelry Store.",
+        "Benchmark the full material-to-sale loop."
+      ],
+      "requirements": [
+        "Level 15+"
+      ]
+    },
+    {
+      "id": "batteries",
+      "name": "Batteries",
+      "level": 15,
+      "premium": false,
+      "candidatePriority": 60,
+      "category": "Advanced",
+      "description": "Quarry Rubble + Recycled Trash + Toxic Waste feed the battery chain.",
+      "steps": [
+        "Collect Quarry Rubble.",
+        "Collect Recycled Trash.",
+        "Collect Toxic Waste.",
+        "Run the battery processing chain.",
+        "Benchmark a repeatable batch including restock time."
+      ],
+      "requirements": [
+        "Level 15+"
+      ]
+    },
+    {
+      "id": "concrete",
+      "name": "Concrete",
+      "level": 15,
+      "premium": true,
+      "candidatePriority": 75,
+      "category": "Premium",
+      "description": "Quarry Rubble + Logs + Unfiltered Water + Toxic Waste → Concrete → Alta Construction Site.",
+      "steps": [
+        "Collect Quarry Rubble, Logs, Unfiltered Water and Toxic Waste.",
+        "Process the concrete recipe.",
+        "Deliver/sell Concrete at Alta Construction Site.",
+        "Benchmark several batches to smooth out travel variance."
+      ],
+      "requirements": [
+        "Level 15+",
+        "Tycoon Premium"
+      ]
+    },
+    {
+      "id": "illegal",
+      "name": "Illegal Trucking",
+      "level": 17,
+      "premium": true,
+      "candidatePriority": 68,
+      "category": "Premium / Sub-job",
+      "description": "Pill Capsules, Defibkit and Pills routes using Methamphetamine.",
+      "steps": [
+        "Switch to Illegal or Master trucking.",
+        "Acquire Methamphetamine at Liquor Ace.",
+        "Choose Pills, Full Pill Capsules, or Defibkit chain.",
+        "Benchmark the same chain for at least several minutes."
+      ],
+      "requirements": [
+        "Level 17+",
+        "Tycoon Premium",
+        "Illegal or Master sub-job"
+      ]
+    },
+    {
+      "id": "house",
+      "name": "House Route",
+      "level": 100,
+      "premium": true,
+      "candidatePriority": 85,
+      "category": "Endgame",
+      "description": "The ultimate advanced route combining materials from the other advanced and Premium trucking chains.",
+      "steps": [
+        "Prepare outputs from the required advanced routes.",
+        "Prepare outputs from the Premium routes.",
+        "Bring the required materials to the House Construction Site.",
+        "Craft Houses and benchmark a realistic full-cycle batch."
+      ],
+      "requirements": [
+        "Level 100+",
+        "Tycoon Premium"
+      ]
+    },
+    {
+      "id": "vehicle-shipments",
+      "name": "Vehicle Shipments",
+      "level": 100,
+      "premium": true,
+      "candidatePriority": 45,
+      "category": "Endgame",
+      "description": "Craft vehicle parts and assemble Vehicle Shipments at the Vehicle Factory.",
+      "steps": [
+        "Craft Car Battery, Chassis, Traction Battery, Vehicle Framework and Wheels at Vehicle Parts.",
+        "Gather the remaining required materials for the desired vehicle.",
+        "Craft the shipment at the Vehicle Factory.",
+        "Benchmark only if using this as an XP grind, since material preparation is substantial."
+      ],
+      "requirements": [
+        "Level 100+",
+        "Tycoon Premium"
+      ]
+    }
+  ]
 }
