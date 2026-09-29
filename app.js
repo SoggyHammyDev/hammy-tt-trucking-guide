@@ -51,13 +51,31 @@ function apiUrl(server,vrp){
 
 function parsePlayer(raw){
   const d=raw?.data??raw;
-  const inv=inventory(d);
+  const inv=d.inventory||{};
+  const groups=d.groups||{};
+  const vehicle=d.vehicle||{};
+  const truckingXp=Number(d.gaptitudes_v?.trucking?.trucking||0);
+
+  let subjob="Commercial";
+  if(groups.trucker_master) subjob="Master";
+  else if(groups.trucker_illegal) subjob="Illegal";
+  else if(groups.trucker_military) subjob="Military";
+  else if(groups.trucker_petrochemical) subjob="Petrochemical";
+  else if(groups.trucker_refrigerated) subjob="Refrigerated";
+
   return {
-    xp:Number(deepFind(d,"exp_trucking_trucking")||0),
-    job:deepFind(d,"job_title")||deepFind(d,"job_name")||deepFind(d,"job")||"Unknown",
-    sub:deepFind(d,"subjob_name")||deepFind(d,"subjob")||"—",
+    xp:truckingXp,
+    job:groups.trucker?"Trucker":"Not currently a Trucker",
+    sub:subjob,
+    rawTokens:amount(inv,"exp_token|trucking|trucking"),
+    bonusTokens:amount(inv,"exp_token_a|trucking|trucking"),
     tokens:amount(inv,"exp_token|trucking|trucking")+amount(inv,"exp_token_a|trucking|trucking"),
-    premium:findPremium(d)
+    premium:!!groups.license_premium,
+    master:!!groups.trucker_master,
+    vehicleName:vehicle.vehicle_name||vehicle.vehicle_spawn||"—",
+    vehicleSpawn:vehicle.vehicle_spawn||"—",
+    trailer:vehicle.trailer||vehicle.owned_vehicles?.trailer||"—",
+    hasTrailer:!!vehicle.has_trailer
   };
 }
 
@@ -84,9 +102,11 @@ async function connect(){
 function renderPlayer(){
   const p=state.player;
   $("truckingXp").textContent=p?fmt(p.xp):"—";
-  $("masterState").textContent=p?(p.xp>=1000000?"Master threshold reached":"Below 1M Master threshold"):"Connect for live XP";
-  $("jobName").textContent=p?p.job:"—";$("subjobName").textContent=p?p.sub:"—";
-  $("truckTokens").textContent=p?fmt(p.tokens):"—";$("apiCharges").textContent=state.charges??"—";
+  $("masterState").textContent=p?(p.master?"Master Trucker active":(p.xp>=1000000?"Master threshold reached":"Below 1M Master threshold")):"Connect for live XP";
+  $("jobName").textContent=p?p.job:"—";
+  $("subjobName").textContent=p?(p.sub+" • "+p.vehicleName+(p.hasTrailer?" + "+p.trailer:"")):"—";
+  $("truckTokens").textContent=p?fmt(p.tokens):"—";
+  $("apiCharges").textContent=state.charges??"—";
   $("connectionBadge").textContent=p?"Live TT connected":"Offline guide";
   $("connectionBadge").className="badge "+(p?"online":"muted");
   $("disconnectBtn").classList.toggle("hidden",!p);renderProgression();
