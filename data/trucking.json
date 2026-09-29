@@ -1,0 +1,63 @@
+{
+  "trailers":[
+    {"name":"MK1 (Pup Trailer)","price":400000,"capacityKg":400,"level":5},
+    {"name":"MK2 (Trailer)","price":600000,"capacityKg":475,"level":10},
+    {"name":"MK3 (Log Trailer)","price":1250000,"capacityKg":600,"level":15},
+    {"name":"MK4 (Bottom Dump Trailer)","price":5000000,"capacityKg":775,"level":20},
+    {"name":"MK5 (Dry Bulk Trailer)","price":10000000,"capacityKg":1000,"level":25},
+    {"name":"MK6 (Dump Trailer)","price":18000000,"capacityKg":1500,"level":30},
+    {"name":"MK7 (Container Trailer Small)","price":30000000,"capacityKg":2200,"level":35},
+    {"name":"MK8 (Container Trailer)","price":45000000,"capacityKg":2500,"level":40},
+    {"name":"MK9 (Refrigerated Trailer)","price":75000000,"capacityKg":2750,"level":45},
+    {"name":"MK10 (Refrigerated Trailer)","price":100000000,"capacityKg":3000,"level":50},
+    {"name":"MK11 (TV Trailer)","price":160000000,"capacityKg":3500,"level":55},
+    {"name":"MK12 (TV Trailer 2)","price":250000000,"capacityKg":5000,"level":65},
+    {"name":"MK13 (Box Trailer)","price":450000000,"capacityKg":8500,"level":80},
+    {"name":"MK14 (MOC)","price":500000000,"capacityKg":9000,"level":100}
+  ],
+  "cargo":[
+    {"name":"Tools","weightKg":1,"level":1,"location":"Cargo Buyer: Tools"},
+    {"name":"Erasers","weightKg":3,"level":2,"location":"Cargo Buyer: Erasers"},
+    {"name":"Logs","weightKg":60,"level":6,"location":"Logging Camp"},
+    {"name":"Recycled Trash","weightKg":90,"level":9,"location":"Recycling Center"},
+    {"name":"Toxic Waste","weightKg":110,"level":11,"location":"Elysian Island Waste Deposit"},
+    {"name":"Recycled Electronics","weightKg":130,"level":13,"location":"Electronics Store"},
+    {"name":"Quarry Rubble","weightKg":150,"level":15,"location":"Quarry"},
+    {"name":"Vegetables","weightKg":15,"level":10,"location":"Great Chaparral Farm"},
+    {"name":"Dairy Products","weightKg":15,"level":10,"location":"Grapeseed Farms"},
+    {"name":"Crude Oil","weightKg":150,"level":10,"location":"LS Oil Pumping Station"},
+    {"name":"Raw Gas","weightKg":150,"level":10,"location":"GSD Gas Pumping Station"},
+    {"name":"Methamphetamine","weightKg":10,"level":17,"location":"Liquor Ace","premium":true}
+  ],
+  "milestones":[
+    {"level":1,"text":"Courier side-job"},
+    {"level":2,"text":"Transport Erasers"},
+    {"level":5,"text":"Buy 10 Tools at a time"},
+    {"level":6,"text":"Transport and process Logs"},
+    {"level":9,"text":"Recycled Trash process"},
+    {"level":10,"text":"Military, Refrigerated and Petrochemical sub-jobs"},
+    {"level":11,"text":"Toxic Waste"},
+    {"level":13,"text":"Recycled Electronics"},
+    {"level":15,"text":"Quarry Rubble, Jewelry and Batteries"},
+    {"level":17,"text":"Illegal pill-component production"},
+    {"level":35,"text":"Storage Facilities Courier routes"},
+    {"level":80,"text":"MK13 trailer"},
+    {"level":100,"text":"MK14 trailer, Car Parts and Vehicle Shipments"},
+    {"xp":1000000,"displayLevel":"631.96","text":"Master Trucker + MK15 eligibility"}
+  ],
+  "routes":[
+    {"name":"Basic Commercial","level":1,"description":"Pick up cargo from sellers and deliver it to compatible cargo buyers."},
+    {"name":"Logging","level":6,"description":"Logging Camp → Logs → Sawmill → Sawdust or Planks → LS Port Export / storage."},
+    {"name":"Recycled Materials","level":9,"description":"Recycling Center → Recycled Trash → Sorting Facility → plastics / aluminum / tin → exports or foundry."},
+    {"name":"Refrigerated","level":10,"description":"Food routes including vegetables, dairy, meat/fish and airline meal processing.","subjob":"Refrigerated"},
+    {"name":"Petrochemical / Military","level":10,"description":"Crude Oil and Raw Gas feed the petrochemical chain used by military trucking.","subjob":"Petrochemical / Military"},
+    {"name":"Jewelry","level":15,"description":"Quarry Rubble + Recycled Electronics → Jewelry → Jewelry Store."},
+    {"name":"Batteries","level":15,"description":"Quarry Rubble + Recycled Trash + Toxic Waste feed the battery process."},
+    {"name":"Illegal","level":17,"description":"Pill capsules, Defibkit and Pills routes using Methamphetamine.","premium":true,"subjob":"Illegal"},
+    {"name":"Concrete","level":15,"description":"Quarry Rubble + Logs + Unfiltered Water + Toxic Waste → Concrete → Alta Construction Site.","premium":true},
+    {"name":"House","level":100,"description":"Ultimate route combining advanced and premium trucking chains at the House Construction Site.","premium":true},
+    {"name":"Vehicle Shipments","level":100,"description":"Craft vehicle components and complete Vehicle Shipments at the Vehicle Factory.","premium":true}
+  ],
+  "source":"https://dash.tycoon.community/wiki/index.php/Trucking",
+  "updated":"2026-09-29"
+}
