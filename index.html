@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>Hammy TT Trucking Guide</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Transport Tycoon</p>
+      <h1>Hammy Trucking Guide</h1>
+      <p class="subtitle">Wiki-backed progression, live TT player data, cargo capacity tools, and route recommendations.</p>
+    </div>
+    <div id="connectionBadge" class="badge muted">Offline guide</div>
+  </header>
+
+  <main class="shell">
+    <section class="panel connect-panel">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Live TT data</p>
+          <h2>Connect your player</h2>
+        </div>
+        <button id="disconnectBtn" class="ghost hidden" type="button">Disconnect</button>
+      </div>
+
+      <form id="connectForm" class="connect-grid">
+        <label>
+          <span>vRP ID</span>
+          <input id="vrpId" inputmode="numeric" autocomplete="off" placeholder="647347" required>
+        </label>
+        <label>
+          <span>Private API key</span>
+          <input id="apiKey" type="password" autocomplete="off" placeholder="X-Tycoon-Key" required>
+        </label>
+        <label>
+          <span>Server</span>
+          <select id="serverSelect">
+            <option value="">Loading TT servers…</option>
+          </select>
+        </label>
+        <label id="customServerWrap" class="hidden">
+          <span>Custom API base URL</span>
+          <input id="customServer" type="url" placeholder="https://…/status">
+        </label>
+        <button class="primary" type="submit">Connect</button>
+      </form>
+      <p class="fineprint">Your private key is kept only in this browser tab and is sent directly to the TT API as <code>X-Tycoon-Key</code>. It is never committed to GitHub.</p>
+      <div id="connectStatus" class="status" aria-live="polite"></div>
+    </section>
+
+    <section id="playerPanel" class="stats-grid">
+      <article class="stat">
+        <span>Trucking XP</span>
+        <strong id="truckingXp">—</strong>
+        <small id="masterState">Connect for live XP</small>
+      </article>
+      <article class="stat">
+        <span>Current job</span>
+        <strong id="jobName">—</strong>
+        <small id="subjobName">—</small>
+      </article>
+      <article class="stat">
+        <span>Trucking EXP tokens</span>
+        <strong id="truckTokens">—</strong>
+        <small>From player inventory</small>
+      </article>
+      <article class="stat">
+        <span>API charges</span>
+        <strong id="apiCharges">—</strong>
+        <small>Remaining after last request</small>
+      </article>
+    </section>
+
+    <nav class="tabs" aria-label="Guide sections">
+      <button class="tab active" data-tab="progression" type="button">Progression</button>
+      <button class="tab" data-tab="calculator" type="button">Capacity</button>
+      <button class="tab" data-tab="routes" type="button">Routes</button>
+      <button class="tab" data-tab="vehicles" type="button">Trailers</button>
+    </nav>
+
+    <section id="progression" class="tabpage active">
+      <div class="two-col">
+        <article class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Your path</p>
+              <h2>Trucking progression</h2>
+            </div>
+            <label class="compact">
+              <span>Manual level</span>
+              <input id="manualLevel" type="number" min="0" step="0.01" value="1">
+            </label>
+          </div>
+          <div id="milestones" class="timeline"></div>
+        </article>
+
+        <article class="panel">
+          <p class="eyebrow">At a glance</p>
+          <h2>Available now</h2>
+          <div id="availableRoutes" class="route-stack"></div>
+          <h3 class="subhead">Next unlocks</h3>
+          <div id="nextUnlocks" class="route-stack compact-stack"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="calculator" class="tabpage">
+      <article class="panel">
+        <p class="eyebrow">Load planner</p>
+        <h2>Cargo capacity calculator</h2>
+        <div class="calc-grid">
+          <label>
+            <span>Trailer</span>
+            <select id="trailerSelect"></select>
+          </label>
+          <label>
+            <span>Cargo</span>
+            <select id="cargoSelect"></select>
+          </label>
+          <label>
+            <span>Capacity override (kg)</span>
+            <input id="capacityOverride" type="number" min="1" placeholder="Use wiki capacity">
+          </label>
+        </div>
+        <div id="capacityResult" class="big-result"></div>
+      </article>
+    </section>
+
+    <section id="routes" class="tabpage">
+      <article class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Wiki routes</p>
+            <h2>Route explorer</h2>
+          </div>
+          <input id="routeSearch" class="search" type="search" placeholder="Search routes…">
+        </div>
+        <div id="routeCards" class="cards"></div>
+      </article>
+    </section>
+
+    <section id="vehicles" class="tabpage">
+      <article class="panel">
+        <p class="eyebrow">Equipment</p>
+        <h2>Trailer progression</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Trailer</th><th>Level</th><th>Capacity</th><th>Price</th></tr></thead>
+            <tbody id="trailerRows"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <span>Hammy TT Trucking Guide</span>
+    <a href="https://dash.tycoon.community/wiki/index.php/Trucking" target="_blank" rel="noopener">TT Trucking Wiki</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
